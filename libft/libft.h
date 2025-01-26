@@ -1,11 +1,31 @@
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <stdlib.h>
-// # include "libft/libft.h"
 # include <unistd.h>
+
+#ifndef INT_MAX
+#define INT_MAX 2147483647
+#endif
+
+#ifndef INT_MIN
+#define INT_MIN -2147483648
+#endif
+
+typedef struct s_list
+{
+	char	**arr;
+	struct s_list	*next;
+}               t_list;
 
 char	**ft_split(char const *s, char c);
 size_t	ft_strlen(const char *s);
+int		ft_isdigit(int c);
+void    add_node(t_list **head, char **arr);
+int	ft_atoi(char *str, int *error);
+void	ft_lstclear(t_list **lst);
+void	ft_lstdelone(t_list *lst);
+void del(char **t);
+int	check_overflow(long result, int digit, int sign, int *error);
 
 #endif

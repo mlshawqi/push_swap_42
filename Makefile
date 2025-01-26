@@ -1,8 +1,9 @@
 NAME = push_swap
 
-SRCS = main.c \
-        libft/ft_split.c \
-		libft/ft_strlen.c \
+SRCS = main.c parsing.c\
+        libft/ft_split.c  libft/ft_isdigit.c libft/ft_atoi.c\
+		libft/ft_strlen.c libft/ft_lstadd_back.c\
+		libft/ft_lstclear.c libft/ft_lstdelone.c\
 
 OBJS = $(SRCS:.c=.o)
 
