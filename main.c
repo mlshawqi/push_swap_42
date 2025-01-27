@@ -1,9 +1,10 @@
 #include "push_swap.h"
 
-void    ft_exit(t_data *d)
+void    ft_exit(t_data *d, char *msg)
 {
-    write(1, "Error\n", ft_strlen("Error\n"));
-    free(d->arr);
+    ft_printf("Error\n%s\n", msg);
+    if(d->stacka)
+        free(d->stacka);
     exit (0);
 }
 
@@ -14,9 +15,9 @@ int main(int argc, char *argv[])
     int i = 0;
     while(i < data.size)
     {
-        printf("%d\n", data.arr[i]);
+        printf("%d\n", data.stacka[i]);
         i++;
     }
-    free(data.arr);
+    free(data.stacka);
     printf("nice\n");
 }

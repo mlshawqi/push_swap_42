@@ -27,12 +27,34 @@ void    ft_checkdupes(t_data *tab)
         j = i + 1;
         while(j < tab->size)
         {
-            if(tab->arr[i] == tab->arr[j])
-                ft_exit(tab);
+            if(tab->stacka[i] == tab->stacka[j])
+                ft_exit(tab, "There are duplicates of some arguments!");
             j++;
         }
         i++;
     }
+}
+
+int    ft_issort(t_data *tab)
+{
+    int i;
+    int j;
+    int min;
+
+    i = 0;
+    while(i < tab->size)
+    {
+        j = i + 1;
+        min = tab->stacka[i];
+        while(j < tab->size)
+        {
+            if(tab->stacka[j] < min)
+                return (0);
+            j++;
+        }
+        i++;
+    }
+    return (1);
 }
 
 void    ft_parsing(int ac, char **av, t_data *d)
@@ -47,11 +69,13 @@ void    ft_parsing(int ac, char **av, t_data *d)
             if(ft_isnums(av[i]))
                 i++;
             else
-                ft_exit(d);
+                ft_exit(d, "Some arguments are not integers!");
         }
         process_input(av, ac, d);
         ft_checkdupes(d);
+        if(ft_issort(d))
+        ft_exit(d, "Arguments already sorted!");
     }
     else
-        ft_exit(d);
+        ft_exit(d, "Need more arguments!");
 }

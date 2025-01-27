@@ -35,7 +35,7 @@ int    convert_strings(t_data *d, t_list *lst)
         j = 0;
         while(lst->arr[j] != NULL && i < d->size)
         {
-            d->arr[i] = ft_atoi(lst->arr[j], &error);
+            d->stacka[i] = ft_atoi(lst->arr[j], &error);
             if(error == 1)
                 return (0);
             i++;
@@ -63,13 +63,16 @@ void    process_input(char **str, int ac, t_data *d)
         len++;
     }
     d->size = count_strings(node, len);
-    d->arr = malloc(sizeof(int) * d->size);
-    if(!d->arr)
+    d->stacka = malloc(sizeof(int) * d->size);
+    if(!d->stacka)
+    {
         ft_lstclear(&node);
+        exit(0);
+    }
     if(!convert_strings(d, node))
     {
         ft_lstclear(&node);
-        ft_exit(d);
+        ft_exit(d, "Some arguments are bigger than an integer!");
     }
     ft_lstclear(&node);
 }
