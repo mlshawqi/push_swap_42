@@ -14,3 +14,4 @@ void	ft_lstclear(t_list **lst)
 	}
 	*lst = NULL;
 }
+

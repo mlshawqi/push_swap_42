@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+
 int     count_strings(t_list *node, int len)
 {
     int i;
@@ -22,7 +23,7 @@ int     count_strings(t_list *node, int len)
     return (tlen);
 }
 
-int    convert_strings(t_data *d, t_list *lst)
+int    convert_strings(t_data *data, t_list *lst)
 {
     int i;
     int j;
@@ -30,12 +31,12 @@ int    convert_strings(t_data *d, t_list *lst)
 
     i = 0;
     error = 0;
-    while(i < d->size)
+    while(i < data->size)
     {
         j = 0;
-        while(lst->arr[j] != NULL && i < d->size)
+        while(lst->arr[j] != NULL)
         {
-            d->stacka[i] = ft_atoi(lst->arr[j], &error);
+            link_node(&data->stack_a, ft_atoi(lst->arr[j], &error));
             if(error == 1)
                 return (0);
             i++;
@@ -47,7 +48,7 @@ int    convert_strings(t_data *d, t_list *lst)
     return (1);
 }
 
-void    process_input(char **str, int ac, t_data *d)
+void    process_input(char **str, int ac, t_data *data)
 {
     int i;
     t_list  *node;
@@ -62,17 +63,17 @@ void    process_input(char **str, int ac, t_data *d)
         i++;
         len++;
     }
-    d->size = count_strings(node, len);
-    d->stacka = malloc(sizeof(int) * d->size);
-    if(!d->stacka)
+    data->size = count_strings(node, len);
+    // stack_a->stack = malloc(sizeof(int) * stack_a->size);
+    // if(!stack_a->stack)
+    // {
+    //     ft_lstclear(&node);
+    //     exit(0);
+    // }
+    if(!convert_strings(data, node))
     {
         ft_lstclear(&node);
-        exit(0);
-    }
-    if(!convert_strings(d, node))
-    {
-        ft_lstclear(&node);
-        ft_exit(d, "Some arguments are bigger than an integer!");
+        ft_exit(data);
     }
     ft_lstclear(&node);
 }

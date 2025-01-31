@@ -16,48 +16,45 @@ int	ft_isnums(char *str)
     return (1);
 }
 
-void    ft_checkdupes(t_data *tab)
+int    ft_checkdupes(t_stack *stack_a)
 {
-    int i;
-    int j;
+    t_stack *node;
 
-    i = 0;
-    while(i < tab->size)
+    while(stack_a != NULL)
     {
-        j = i + 1;
-        while(j < tab->size)
+        node = stack_a->next;
+        while(node != NULL)
         {
-            if(tab->stacka[i] == tab->stacka[j])
-                ft_exit(tab, "There are duplicates of some arguments!");
-            j++;
+            if(stack_a->number == node->number)
+                return (1);
+            node = node->next;
         }
-        i++;
+        stack_a = stack_a->next;
     }
+    return (0);
 }
 
-int    ft_issort(t_data *tab)
+int    ft_issort(t_stack *stack_a)
 {
-    int i;
-    int j;
     int min;
+    t_stack *node;
 
-    i = 0;
-    while(i < tab->size)
+    while(stack_a != NULL)
     {
-        j = i + 1;
-        min = tab->stacka[i];
-        while(j < tab->size)
+        node = stack_a->next;
+        min = stack_a->number;
+        while(node != NULL)
         {
-            if(tab->stacka[j] < min)
-                return (0);
-            j++;
+            if(min > node->number)
+                return (1);
+            node = node->next;
         }
-        i++;
+        stack_a = stack_a->next;
     }
-    return (1);
+    return (0);
 }
 
-void    ft_parsing(int ac, char **av, t_data *d)
+void    ft_parsing(int ac, char **av, t_data *data_a)
 {
     int i;
 
@@ -69,13 +66,14 @@ void    ft_parsing(int ac, char **av, t_data *d)
             if(ft_isnums(av[i]))
                 i++;
             else
-                ft_exit(d, "Some arguments are not integers!");
+                ft_exit(data_a);
         }
-        process_input(av, ac, d);
-        ft_checkdupes(d);
-        if(ft_issort(d))
-        ft_exit(d, "Arguments already sorted!");
+        process_input(av, ac, data_a);
+        if(ft_checkdupes(data_a->stack_a))
+            ft_exit(data_a);
+        if(!ft_issort(data_a->stack_a))
+            ft_exit(data_a);
     }
     else
-        ft_exit(d, "Need more arguments!");
+        exit(0);
 }
