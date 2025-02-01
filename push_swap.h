@@ -18,6 +18,7 @@ typedef struct s_dataa{
     t_stack  *stack_a;
     t_stack  *stack_b;
     int size;
+    int size_b;
 }               t_data;
 
 
@@ -34,10 +35,19 @@ int    ft_checkdupes(t_stack *stack_a);
 int    ft_issort(t_stack *stack_a);
 
 t_stack *ft_lstlast(t_stack *lst);
+void	ft_lstadd_front(t_stack **lst, t_stack *new);
+
 void    ft_sort_main(t_data *data);
 void    ft_sort_3(t_data *data, int min, int max);
+
 void    sa_swap(t_stack **data);
 void    ra_rotate(t_stack **data);
-// void    rra_reverse_rotete(t_stack *data);
+void    rra_reverse_rotete(t_stack **data);
+void    pb_push(t_data *data);
+void    pa_push(t_data *data);
+
+void    ft_sort_base(t_data *data);
+void    min_nbr(t_data *data);
+
 
 #endif

@@ -72,7 +72,10 @@ void    ft_parsing(int ac, char **av, t_data *data_a)
         if(ft_checkdupes(data_a->stack_a))
             ft_exit(data_a);
         if(!ft_issort(data_a->stack_a))
-            ft_exit(data_a);
+        {
+            ft_stack_clear(&data_a->stack_a);
+            exit (0);
+        }
     }
     else
         exit(0);

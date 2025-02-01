@@ -2,11 +2,12 @@
 
 void    sa_swap(t_stack **data)
 {
-    (*data)->next
+    t_stack *tmp;
 
-    tmp = (*data)->number;
-    (*data)->number = (*data)->next->number;
-    (*data)->next->number = tmp;
+    tmp = *data;
+    *data = (*data)->next;
+    tmp->next = (*data)->next;
+    (*data)->next = tmp;
     ft_printf("sa\n");
 }
 
@@ -15,33 +16,54 @@ void    ra_rotate(t_stack **data)
     t_stack *last_node;
     t_stack *head;
 
-    head = *data;
-    while(data != NULL)
-    {
-        if((*data)->next->next == NULL)
-        {
-            last_node = data->next;
-            data->next->next == head;
-            data->next == NULL;
-        }
-        data = data->next;
-    }
-    data = last_node;
+    head = (*data)->next;
+    last_node = ft_lstlast(*data);
+    last_node->next = *data;
+    (*data)->next = NULL;
+    *data = head;
     ft_printf("ra\n");
 }
 
-// void    rra_reverse_rotete(t_data *data)
-// {
-//     int i;
-//     int tmp;
+void    rra_reverse_rotete(t_stack **data)
+{
+    t_stack *last_node;
+    t_stack *head;
 
-//     i = data->size - 1;
-//     tmp = data->stack[data->size - 1];
-//     while(i > 0)
-//     {
-//         data->stack[i] = data->stack[i - 1];
-//         i--;
-//     }
-//     data->stack[0] = tmp;
-//     ft_printf("rra\n");
-// }
+    head = *data;
+    while(*data != NULL)
+    {
+        if((*data)->next->next == NULL)
+        {
+            last_node = (*data)->next;
+            (*data)->next->next = head;
+            (*data)->next = NULL;
+        }
+        *data = (*data)->next;
+    }
+    *data = last_node;
+    ft_printf("rra\n");
+}
+
+void    pb_push(t_data *data)
+{
+    t_stack *first_node;
+
+    first_node = data->stack_a;
+    data->stack_a = data->stack_a->next;
+    ft_lstadd_front(&data->stack_b, first_node);
+    data->size--;
+    data->size_b++;
+    ft_printf("pb\n");
+}
+
+void    pa_push(t_data *data)
+{
+    t_stack *first_node;
+
+    first_node = data->stack_b;
+    data->stack_b = data->stack_b->next;
+    ft_lstadd_front(&data->stack_a, first_node);
+    data->size_b--;
+    data->size++;
+    ft_printf("pa\n");
+}

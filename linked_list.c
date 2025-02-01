@@ -31,3 +31,11 @@ t_stack *ft_lstlast(t_stack *lst)
 		lst = lst->next;
 	return (lst);
 }
+
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
+{
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}
