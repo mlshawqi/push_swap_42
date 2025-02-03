@@ -40,7 +40,7 @@ void    ft_sort_main(t_data *data)
     ft_sort_3(data, min, max);
 }
 
-void    ft_sort_base(t_data *data)
+void    ft_sort_small(t_data *data)
 {
     int size;
 

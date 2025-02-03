@@ -29,7 +29,9 @@ void    ft_exit(t_data *d)
         ft_stack_clear(&d->stack_a);
     if(d->stack_b)
         ft_stack_clear(&d->stack_b);
-    exit (0);
+    if(d->arr)
+        free(d->arr);
+    exit (2);
 }
 
 int main(int argc, char *argv[])
@@ -38,25 +40,32 @@ int main(int argc, char *argv[])
 
     data.stack_a = NULL;
     data.stack_b = NULL;
+    data.arr = NULL;
     data.size = 0;
     data.size_b = 0;
     ft_parsing(argc, argv, &data);
     if(data.size == 5 || data.size == 4 || data.size == 3 || data.size == 2)
-        ft_sort_base(&data);
+        ft_sort_small(&data);
+    else
+        sort_large(&data);
 
-    t_stack *node = data.stack_a;
-    while(node != NULL)
-    {
-        printf("%d\n", node->number);
-        node = node->next;
-    }
-    printf("---------------\n");
-    node = data.stack_b;
-    while(node != NULL)
-    {
-        printf("%d\n", node->number);
-        node = node->next;
-    }
+//--------------------------------
+    for(int i = 0; i < data.size; i++)
+        printf("arr = %d\n", data.arr[i]);
+
+    // t_stack *node = data.stack_a;
+    // while(node != NULL)
+    // {
+    //     printf("%d\n", node->number);
+    //     node = node->next;
+    // }
+    // printf("---------------\n");
+    // node = data.stack_b;
+    // while(node != NULL)
+    // {
+    //     printf("%d\n", node->number);
+    //     node = node->next;
+    // }
     printf("nice\n");
     // pb_push(&data);
     // pb_push(&data);
@@ -73,6 +82,5 @@ int main(int argc, char *argv[])
     //     printf("%d\n", node->number);
     //     node = node->next;
     // }
-    if(data.stack_a)
-        ft_stack_clear(&data.stack_a);
+    ft_exit(&data);
 }
