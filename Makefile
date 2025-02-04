@@ -1,7 +1,7 @@
 NAME = push_swap
 
 SRCS = main.c parsing.c parsing2.c algo_simple.c operations.c\
-		algo_complex.c linked_list.c\
+		algo_complex.c linked_list.c operations_b.c move_utils.c\
         libft/ft_split.c  libft/ft_isdigit.c libft/ft_atoi.c\
 		libft/ft_strlen.c libft/ft_lstadd_back.c \
 		libft/ft_lstclear.c libft/ft_lstdelone.c \

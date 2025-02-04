@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    sa_swap(t_stack **data)
+void    sb_swap(t_stack **data)
 {
     t_stack *tmp;
 
@@ -8,10 +8,10 @@ void    sa_swap(t_stack **data)
     *data = (*data)->next;
     tmp->next = (*data)->next;
     (*data)->next = tmp;
-    ft_printf("sa\n");
+    ft_printf("sb\n");
 }
 
-void    ra_rotate(t_stack **data)
+void    rb_rotate(t_stack **data)
 {
     t_stack *last_node;
     t_stack *head;
@@ -21,10 +21,10 @@ void    ra_rotate(t_stack **data)
     last_node->next = *data;
     (*data)->next = NULL;
     *data = head;
-    ft_printf("ra\n");
+    ft_printf("rb\n");
 }
 
-void    rra_reverse_rotete(t_stack **data)
+void    rrb_reverse_rotete(t_stack **data)
 {
     t_stack *last_node;
     t_stack *head;
@@ -41,17 +41,17 @@ void    rra_reverse_rotete(t_stack **data)
         *data = (*data)->next;
     }
     *data = last_node;
-    ft_printf("rra\n");
+    ft_printf("rrb\n");
 }
 
-void    pa_push(t_data *data)
+void    pb_push(t_data *data)
 {
     t_stack *first_node;
 
-    first_node = data->stack_b;
-    data->stack_b = data->stack_b->next;
-    ft_lstadd_front(&data->stack_a, first_node);
-    data->size_b--;
-    data->size++;
-    ft_printf("pa\n");
+    first_node = data->stack_a;
+    data->stack_a = data->stack_a->next;
+    ft_lstadd_front(&data->stack_b, first_node);
+    data->size--;
+    data->size_b++;
+    ft_printf("pb\n");
 }

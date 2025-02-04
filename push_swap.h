@@ -21,6 +21,7 @@ typedef struct s_dataa{
     int size_b;
     int *arr;
     int *chunk;
+    int chunk_size;
 }               t_data;
 
 
@@ -45,9 +46,12 @@ void    ft_sort_3(t_data *data, int min, int max);
 void    sa_swap(t_stack **data);
 void    ra_rotate(t_stack **data);
 void    rra_reverse_rotete(t_stack **data);
-void    pb_push(t_data *data);
 void    pa_push(t_data *data);
 
+void    sb_swap(t_stack **data);
+void    rb_rotate(t_stack **data);
+void    rrb_reverse_rotete(t_stack **data);
+void    pb_push(t_data *data);
 void    ft_sort_small(t_data *data);
 void    min_nbr(t_data *data);
 

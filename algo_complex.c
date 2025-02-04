@@ -64,12 +64,13 @@ void    sort_large(t_data *data)
 {
     ft_sort_arr(data);
     if (data->size >= 6 && data->size <= 15)
-        ft_chunk(data, data->arr, 3);
+        data->chunk_size = 3;
     else if (data->size <= 100)
-        ft_chunk(data, data->arr, 13);
+        data->chunk_size = 13;
     else if (data->size)
-        ft_chunk(data, data->arr, 30);
+        data->chunk_size = 30;
     else
-        ft_chunk(data, data->arr, 45);
-    //ft_stack_moves(data);
+        data->chunk_size = 45;
+    ft_chunk(data, data->arr, data->chunk_size);
+    ft_stack_moves(data);
 }
