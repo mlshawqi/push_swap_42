@@ -7,14 +7,15 @@ void    ft_chunk(t_data *data,int *arr, int count)
     data->chunk = malloc(sizeof(int) * count);
     if(!data->chunk)
         ft_exit(data);
+    ft_bzero(data->chunk, count * sizeof(int));
     i = 0;
-    while(i < count && arr[i])
+    while(i < count)
     {
         data->chunk[i] = arr[i];
         i++;
     }
-    // for(int i = 0; i < count; i++)
-    //     printf("--chunk = %d\n", data->chunk[i]);
+    for(int i = 0; i < count; i++)
+        printf("--chunk = %d\n", data->chunk[i]);
 }
 
 void     ft_bubble_sort(int *arr, int size)

@@ -48,6 +48,8 @@ void    pb_push(t_data *data)
 {
     t_stack *first_node;
 
+    if (!data->stack_a)
+        ft_exit(data);
     first_node = data->stack_a;
     data->stack_a = data->stack_a->next;
     ft_lstadd_front(&data->stack_b, first_node);

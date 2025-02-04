@@ -31,6 +31,8 @@ void    ft_exit(t_data *d)
         ft_stack_clear(&d->stack_b);
     if(d->arr)
         free(d->arr);
+    if(d->chunk)
+        free(d->chunk);
     exit (2);
 }
 
