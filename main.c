@@ -50,15 +50,15 @@ int main(int argc, char *argv[])
         sort_large(&data);
 
 //--------------------------------
-    for(int i = 0; i < data.size; i++)
-        printf("arr = %d\n", data.arr[i]);
+    // for(int i = 0; i < data.size; i++)
+    //     printf("arr = %d\n", data.arr[i]);
 
-    t_stack *node = data.stack_a;
-    while(node != NULL)
-    {
-        printf("%d\n", node->number);
-        node = node->next;
-    }
+    // t_stack *node = data.stack_a;
+    // while(node != NULL)
+    // {
+    //     printf("%d\n", node->number);
+    //     node = node->next;
+    // }
     // printf("---------------\n");
     // node = data.stack_b;
     // while(node != NULL)

@@ -59,5 +59,7 @@ void    sort_large(t_data *data);
 void    ft_sort_arr(t_data *data);
 void     ft_bubble_sort(int *arr, int size);
 void    ft_chunk(t_data *data,int *arr, int count);
+void    ft_stack_moves(t_data *data);
+void     ft_moves(t_data *data, int *move_chunk);
 
 #endif
