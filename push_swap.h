@@ -61,5 +61,6 @@ void     ft_bubble_sort(int *arr, int size);
 void    ft_chunk(t_data *data,int *arr, int count);
 void    ft_stack_moves(t_data *data);
 void     ft_moves(t_data *data, int *move_chunk);
+void    ft_last_move(t_data *data);
 
 #endif

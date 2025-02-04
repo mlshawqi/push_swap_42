@@ -8,7 +8,7 @@ void    ft_chunk(t_data *data,int *arr, int count)
     if(!data->chunk)
         ft_exit(data);
     i = 0;
-    while(i < count)
+    while(i < count && arr[i])
     {
         data->chunk[i] = arr[i];
         i++;

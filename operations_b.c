@@ -51,7 +51,7 @@ void    pb_push(t_data *data)
     first_node = data->stack_a;
     data->stack_a = data->stack_a->next;
     ft_lstadd_front(&data->stack_b, first_node);
-    data->size--;
-    data->size_b++;
+    // data->size--;
+    // data->size_b++;
     ft_printf("pb\n");
 }

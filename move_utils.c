@@ -1,5 +1,40 @@
 #include "push_swap.h"
 
+void    ft_last_move(t_data *data)
+{
+    int i;
+    int pos;
+    t_stack *lst;
+
+    i = 0;
+    while(data->stack_b != NULL)
+    {
+        pos = 0;
+        lst = data->stack_b;
+        while(lst != NULL)
+        {
+            if(data->stack_b->number == data->arr[i])
+            {
+                if(pos <= (data->size / 2))
+                {
+                    while (pos-- > 0)
+                        rb_rotate(&data->stack_b);
+                }
+                else if (pos > (data->size / 2))
+                {
+                    while (pos++ < data->size)
+                        rrb_reverse_rotete(&data->stack_b);
+                }                
+                pa_push(data);
+                break;
+            }
+            lst = lst->next;
+            pos++;
+        }
+        i++;
+    }
+}
+
 void     ft_moves(t_data *data, int *move_chunk)
 {
     int i;
@@ -31,9 +66,8 @@ void     ft_moves(t_data *data, int *move_chunk)
 void    ft_stack_moves(t_data *data)
 {
     int move_chunk;
-    int i = 0;
 
-    while(i < data->size)
+    while(data->stack_a != NULL)
     {
         move_chunk = 0;
         ft_moves(data, &move_chunk);
@@ -41,6 +75,6 @@ void    ft_stack_moves(t_data *data)
             ft_chunk(data, data->arr + 1, data->chunk_size);
         // printf("---ch %d  nb %d\n", move_chunk, data->stack_a->number);
         // data->stack_a = data->stack_a->next;
-        i++;
     }
+    // ft_last_move(data);
 }
