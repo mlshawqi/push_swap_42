@@ -72,6 +72,6 @@ void    sort_large(t_data *data)
         data->chunk_size = 30;
     else
         data->chunk_size = 45;
-    ft_chunk(data, data->arr, data->chunk_size);
+    // ft_chunk(data, data->arr, data->chunk_size);
     ft_stack_moves(data);
 }

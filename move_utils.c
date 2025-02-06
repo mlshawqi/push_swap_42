@@ -6,14 +6,14 @@ void    ft_last_move(t_data *data)
     int pos;
     t_stack *lst;
 
-    i = 0;
+    i = data->size - 1;
     while(data->stack_b != NULL)
     {
         pos = 0;
         lst = data->stack_b;
         while(lst != NULL)
         {
-            if(data->stack_b->number == data->arr[i])
+            if(lst->number == data->arr[i])
             {
                 if(pos <= (data->size / 2))
                 {
@@ -31,7 +31,7 @@ void    ft_last_move(t_data *data)
             lst = lst->next;
             pos++;
         }
-        i++;
+        i--;
     }
 }
 
@@ -59,23 +59,23 @@ void    ft_stack_moves(t_data *data)
     i = 0;
     while(data->stack_a != NULL)
     {
-        if(data->stack_a->number < data->chunk[0])
+        if(data->stack_a->number < data->arr[i])
         {
             i++;
             pb_push(data);
             rb_rotate(&data->stack_b);
-            ft_chunk(data, data->arr + i, data->chunk_size);
+            // free(data->chunk);
+            // ft_chunk(data, data->arr + i, data->chunk_size);
         }
-        else if(data->stack_a->number > data->chunk[data->chunk_size - 1])
+        else if(((i + data->chunk_size) < data->chunk_size) && data->stack_a->number > data->arr[i + data->chunk_size])
             ra_rotate(&data->stack_a);
         else
         {
             i++;
             pb_push(data);
-            ft_chunk(data, data->arr + i, data->chunk_size);
+            // free(data->chunk);
+            // ft_chunk(data, data->arr + i, data->chunk_size);
         }
-        // printf("===ch %d  nb %d\n", data->chunk[data->chunk_size - 1], data->stack_a->number);
-        // data->stack_a = data->stack_a->next;
     }
-    // ft_last_move(data);
+    ft_last_move(data);
 }
