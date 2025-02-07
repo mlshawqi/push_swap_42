@@ -40,28 +40,23 @@ void    ft_sort_main(t_data *data)
     ft_sort_3(data, min, max);
 }
 
-void    ft_sort_small(t_data *data)
+void    ft_loop_rotate_a(t_data *data, int pos)
 {
-    int size;
-
-    size = data->size;
-    if(size == 3)
-        ft_sort_main(data);
-    else if(size == 2)
-        sa_swap(&data->stack_a);
-    else
+    if(pos <= (data->size / 2))
     {
-        min_nbr(data);
-        pb_push(data);
-        if (size == 5)
+        while (pos > 0)
         {
-            min_nbr(data);
-            pb_push(data);
+            ra_rotate(&data->stack_a);
+            pos--;
         }
-        ft_sort_main(data);
-        pa_push(data);
-        if (size == 5)
-            pa_push(data);
+    }
+    else if (pos > (data->size / 2))
+    {
+        while (pos < data->size)
+        {
+            rra_reverse_rotete(&data->stack_a);
+            pos++;
+        }
     }
 }
 
@@ -86,14 +81,32 @@ void    min_nbr(t_data *data)
         node = node->next;
         i++;
     }
-    if(pos && pos <= (data->size / 2))
+    ft_loop_rotate_a(data, pos);
+
+}
+
+
+void    ft_sort_small(t_data *data)
+{
+    int size;
+
+    size = data->size;
+    if(size == 3)
+        ft_sort_main(data);
+    else if(size == 2)
+        sa_swap(&data->stack_a);
+    else
     {
-        while (pos-- > 0)
-            ra_rotate(&data->stack_a);
-    }
-    else if (pos && pos > (data->size / 2))
-    {
-        while (pos++ < data->size)
-            rra_reverse_rotete(&data->stack_a);
+        min_nbr(data);
+        pb_push(data);
+        if (size == 5)
+        {
+            min_nbr(data);
+            pb_push(data);
+        }
+        ft_sort_main(data);
+        pa_push(data);
+        if (size == 5)
+            pa_push(data);
     }
 }

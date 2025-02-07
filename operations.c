@@ -59,5 +59,6 @@ void    pa_push(t_data *data)
     data->stack_b = data->stack_b->next;
     first_node->next = NULL;
     ft_lstadd_front(&data->stack_a, first_node);
+    data->size--;
     ft_printf("pa\n");
 }

@@ -1,23 +1,5 @@
 #include "push_swap.h"
 
-void    ft_chunk(t_data *data,int *arr, int count)
-{
-    int i;
-
-    data->chunk = malloc(sizeof(int) * count);
-    if(!data->chunk)
-        ft_exit(data);
-    ft_bzero(data->chunk, count * sizeof(int));
-    i = 0;
-    while(i < count)
-    {
-        data->chunk[i] = arr[i];
-        i++;
-    }
-    for(int i = 0; i < count; i++)
-        printf("--chunk = %d\n", data->chunk[i]);
-}
-
 void     ft_bubble_sort(int *arr, int size)
 {
     int i;
@@ -49,7 +31,7 @@ void    ft_sort_arr(t_data *data)
 
     data->arr = malloc(data->size * sizeof(int));
     if(!data->arr)
-        ft_exit(data);
+        ft_clear_exit(data);
     lst = data->stack_a;
     i = 0;
     while(lst != NULL)
@@ -72,6 +54,5 @@ void    sort_large(t_data *data)
         data->chunk_size = 30;
     else
         data->chunk_size = 45;
-    // ft_chunk(data, data->arr, data->chunk_size);
     ft_stack_moves(data);
 }

@@ -1,5 +1,25 @@
 #include "push_swap.h"
 
+void    ft_loop_rotate(t_data *data, int pos)
+{
+    if(pos <= (data->size / 2))
+    {
+        while (pos > 0)
+        {
+            rb_rotate(&data->stack_b);
+            pos--;
+        }
+    }
+    else if (pos > (data->size / 2))
+    {
+        while (pos < data->size)
+        {
+            rrb_reverse_rotete(&data->stack_b);
+            pos++;
+        }
+    }
+}
+
 void    ft_last_move(t_data *data)
 {
     int i;
@@ -15,22 +35,7 @@ void    ft_last_move(t_data *data)
         {
             if(lst->number == data->arr[i])
             {
-                if(pos <= (data->size / 2))
-                {
-                    while (pos > 0)
-                    {
-                        rb_rotate(&data->stack_b);
-                        pos--;
-                    }
-                }
-                else if (pos > (data->size / 2))
-                {
-                    while (pos < data->size)
-                    {
-                        rrb_reverse_rotete(&data->stack_b);
-                        pos++;
-                    }
-                }                
+                ft_loop_rotate(data, pos);
                 pa_push(data);
                 break;
             }
@@ -38,23 +43,6 @@ void    ft_last_move(t_data *data)
             pos++;
         }
         i--;
-    }
-}
-
-void     ft_moves(t_data *data, int *move_chunk)
-{
-    if(data->stack_a->number < data->chunk[0])
-    {
-        pb_push(data);
-        rb_rotate(&data->stack_b);
-        (*move_chunk)++;
-    }
-    else if(data->stack_a->number > data->chunk[data->chunk_size - 1])
-        ra_rotate(&data->stack_a);
-    else
-    {
-        pb_push(data);
-        (*move_chunk)++;
     }
 }
 
@@ -70,17 +58,14 @@ void    ft_stack_moves(t_data *data)
             i++;
             pb_push(data);
             rb_rotate(&data->stack_b);
-            // free(data->chunk);
-            // ft_chunk(data, data->arr + i, data->chunk_size);
         }
-        else if(((i + (data->chunk_size - 1)) < data->chunk_size) && data->stack_a->number > data->arr[i + (data->chunk_size - 1)])
+        else if(((i + (data->chunk_size - 1)) < data->size) 
+                && data->stack_a->number > data->arr[i + (data->chunk_size - 1)])
             ra_rotate(&data->stack_a);
         else
         {
             i++;
             pb_push(data);
-            // free(data->chunk);
-            // ft_chunk(data, data->arr + i, data->chunk_size);
         }
     }
     ft_last_move(data);
