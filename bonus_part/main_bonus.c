@@ -10,10 +10,12 @@ int main(int argc, char *argv[])
     data.size = 0;
     data.size_b = 0;
     ft_parsing(argc, argv, &data);
-    ft_read_is(&data);
-    if(data.size < 6)
-        ft_sort_small(&data);
-    else
-        sort_large(&data);
+    ft_read_ins(&data);
+    t_stack *node = data.stack_a;
+    while(node != NULL)
+    {
+        printf(" stack a = %d\n", node->number);
+        node = node->next;
+    }
     ft_clear_exit(&data);
 }

@@ -10,7 +10,6 @@ void    sb_swap(t_stack **data)
     *data = (*data)->next;
     tmp->next = (*data)->next;
     (*data)->next = tmp;
-    ft_printf("sb\n");
 }
 
 void    rb_rotate(t_stack **data)
@@ -25,7 +24,6 @@ void    rb_rotate(t_stack **data)
     last_node->next = *data;
     *data = head;
     last_node->next->next = NULL;
-    ft_printf("rb\n");
 }
 
 void    rrb_reverse_rotete(t_stack **data)
@@ -45,7 +43,6 @@ void    rrb_reverse_rotete(t_stack **data)
     prev->next = NULL;
     last_node->next = *data;
     *data = last_node;
-    ft_printf("rrb\n");
 }
 
 void    pb_push(t_data *data)
@@ -59,5 +56,4 @@ void    pb_push(t_data *data)
     first_node->next = NULL;
     ft_lstadd_front(&data->stack_b, first_node);
     data->size_b++;
-    ft_printf("pb\n");
 }

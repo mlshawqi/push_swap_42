@@ -1,12 +1,13 @@
 NAME = checker
 
-SRCS = main_bonus.c parsing_bonus.c parsing2_bonus.c algo_simple.c operations.c clear.c\
-		algo_complex.c linked_list.c operations_b.c move_utils.c\
-        libft/ft_split.c  libft/ft_isdigit.c libft/ft_atoi.c\
-		libft/ft_strlen.c libft/ft_lstadd_back.c libft/ft_calloc.c\
-		libft/ft_lstclear.c libft/ft_lstdelone.c \
-		ft_printf/ft_printf.c ft_printf/ft_format.c ft_printf/ft_putstr.c\
-		ft_printf/ft_putchar.c \
+SRCS = main_bonus.c parsing_bonus.c parsing2_bonus.c operations_bonus.c clear_bonus.c\
+		linked_list_bonus.c operations2_bonus.c read_bonus.c\
+        ../libft/ft_split.c  ../libft/ft_isdigit.c ../libft/ft_atoi.c\
+		../libft/ft_strlen.c ../libft/ft_lstadd_back.c ../libft/ft_calloc.c\
+		../libft/ft_lstclear.c ../libft/ft_lstdelone.c ../libft/ft_strcmp.c\
+		../ft_printf/ft_printf.c ../ft_printf/ft_format.c ../ft_printf/ft_putstr.c\
+		../ft_printf/ft_putchar.c \
+		../get_next_line/get_next_line.c ../get_next_line/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o)
 

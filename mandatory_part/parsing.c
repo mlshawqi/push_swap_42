@@ -61,6 +61,8 @@ void    ft_parsing(int ac, char **av, t_data *data_a)
     if (ac > 1)
     {
         i = 1;
+        if(av[1][0] == '\0')
+            ft_exit(data_a);
         while(i < ac)
         {
             if(ft_isnums(av[i]))

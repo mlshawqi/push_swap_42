@@ -2,9 +2,9 @@
 # define PUSH_SWAP_BONUS_H
 
 # include <stdlib.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-# include "get_next_line/get_next_line.h"
+# include "../libft/libft.h"
+# include "../ft_printf/ft_printf.h"
+# include "../get_next_line/get_next_line.h"
 # include <fcntl.h>
 # include <string.h>
 # include <unistd.h>
@@ -37,11 +37,11 @@ void    link_node(t_stack **head, int nbr);
 t_stack *ft_lstlast(t_stack *lst);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 
-void    ft_sort_main(t_data *data);
-void    ft_sort_3(t_data *data, int min, int max);
-void    ft_loop_rotate_a(t_data *data, int pos);
-void    ft_sort_small(t_data *data);
-void    min_nbr(t_data *data);
+// void    ft_sort_main(t_data *data);
+// void    ft_sort_3(t_data *data, int min, int max);
+// void    ft_loop_rotate_a(t_data *data, int pos);
+// void    ft_sort_small(t_data *data);
+// void    min_nbr(t_data *data);
 
 void    sa_swap(t_stack **data);
 void    ra_rotate(t_stack **data);
@@ -53,12 +53,14 @@ void    rb_rotate(t_stack **data);
 void    rrb_reverse_rotete(t_stack **data);
 void    pb_push(t_data *data);
 
-void    sort_large(t_data *data);
-void    ft_sort_arr(t_data *data);
-void    ft_bubble_sort(int *arr, int size);
-void    ft_loop_rotate(t_data *data, int pos);
-void    ft_stack_moves(t_data *data);
-void    ft_last_move(t_data *data);
+// void    sort_large(t_data *data);
+// void    ft_sort_arr(t_data *data);
+// void    ft_bubble_sort(int *arr, int size);
+// void    ft_loop_rotate(t_data *data, int pos);
+// void    ft_stack_moves(t_data *data);
+// void    ft_last_move(t_data *data);
+
+void    ft_read_ins(t_data *data);
 
 void    ft_clear_exit(t_data *data);
 void    ft_exit(t_data *d);

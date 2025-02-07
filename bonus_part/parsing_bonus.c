@@ -54,6 +54,21 @@ int    ft_issort(t_stack *stack_a)
     return (0);
 }
 
+int     ft_isempty(char *str)
+{
+    int i;
+
+    i = 0;
+    while(str[i] != '\0')
+    {
+        if(ft_isspace(str[i] || str[i] == '\n'))
+            i++;
+        else
+            return (1);
+    }
+    return (0);
+}
+
 void    ft_parsing(int ac, char **av, t_data *data_a)
 {
     int i;
@@ -63,7 +78,7 @@ void    ft_parsing(int ac, char **av, t_data *data_a)
         i = 1;
         while(i < ac)
         {
-            if(ft_isnums(av[i]))
+            if(ft_isempty(av[i]) == 1 && ft_isnums(av[i]))
                 i++;
             else
                 ft_exit(data_a);
@@ -76,4 +91,4 @@ void    ft_parsing(int ac, char **av, t_data *data_a)
     }
     else
         exit(0);
-}
+}   

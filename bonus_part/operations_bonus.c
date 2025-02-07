@@ -10,7 +10,6 @@ void    sa_swap(t_stack **data)
     *data = (*data)->next;
     tmp->next = (*data)->next;
     (*data)->next = tmp;
-    ft_printf("sa\n");
 }
 
 void    ra_rotate(t_stack **data)
@@ -25,7 +24,6 @@ void    ra_rotate(t_stack **data)
     last_node->next = *data;
     *data = head;
     last_node->next->next = NULL;
-    ft_printf("ra\n");
 }
 
 void    rra_reverse_rotete(t_stack **data)
@@ -45,7 +43,6 @@ void    rra_reverse_rotete(t_stack **data)
     prev->next = NULL;
     last_node->next = *data;
     *data = last_node;
-    ft_printf("rra\n");
 }
 
 
@@ -60,5 +57,4 @@ void    pa_push(t_data *data)
     first_node->next = NULL;
     ft_lstadd_front(&data->stack_a, first_node);
     data->size--;
-    ft_printf("pa\n");
 }
