@@ -29,7 +29,8 @@ void	ft_lstclear(t_list **lst);
 void	ft_lstdelone(t_list *lst);
 void del(char **t);
 int	check_overflow(long result, int digit, int sign, int *error);
-void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *s, size_t n);
+int	ft_isspace(int c);
+int	ft_strcmp(char *s1, char *s2);
 
 #endif
