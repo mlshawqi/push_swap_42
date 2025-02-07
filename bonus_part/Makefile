@@ -1,0 +1,28 @@
+NAME = checker
+
+SRCS = main_bonus.c parsing_bonus.c parsing2_bonus.c algo_simple.c operations.c clear.c\
+		algo_complex.c linked_list.c operations_b.c move_utils.c\
+        libft/ft_split.c  libft/ft_isdigit.c libft/ft_atoi.c\
+		libft/ft_strlen.c libft/ft_lstadd_back.c libft/ft_calloc.c\
+		libft/ft_lstclear.c libft/ft_lstdelone.c \
+		ft_printf/ft_printf.c ft_printf/ft_format.c ft_printf/ft_putstr.c\
+		ft_printf/ft_putchar.c \
+
+OBJS = $(SRCS:.c=.o)
+
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+
+all:$(NAME)
+
+$(NAME): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+.SECONDARY:$(OBJS)
