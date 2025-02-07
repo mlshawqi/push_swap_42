@@ -52,15 +52,15 @@ int main(int argc, char *argv[])
         sort_large(&data);
 
 //--------------------------------
-    // for(int i = 0; i < data.size; i++)
-    //     printf("arr = %d\n", data.arr[i]);
+    for(int i = 0; i < data.size; i++)
+        printf("arr = %d\n", data.arr[i]);
 
-    // t_stack *node = data.stack_a;
-    // while(node != NULL)
-    // {
-    //     printf(" stack a = %d\n", node->number);
-    //     node = node->next;
-    // }
+    t_stack *node = data.stack_a;
+    while(node != NULL)
+    {
+        printf(" stack a = %d\n", node->number);
+        node = node->next;
+    }
     // printf("---------------\n");
     // node = data.stack_b;
     // while(node != NULL)
@@ -68,15 +68,15 @@ int main(int argc, char *argv[])
     //     printf("%d\n", node->number);
     //     node = node->next;
     // }
-    // printf("nice------------------\n");
+    printf("nice------------------\n");
     // pb_push(&data);
     // pb_push(&data);
-    // node = data.stack_b;
-    // while(node != NULL)
-    // {
-    //     printf(" stack b = %d\n", node->number);
-    //     node = node->next;
-    // }
+    node = data.stack_b;
+    while(node != NULL)
+    {
+        printf(" stack b = %d\n", node->number);
+        node = node->next;
+    }
     // printf("------%d>> %d\n", data.size, data.size_b);
     // node = data.stack_a;
     // while(node != NULL)
@@ -84,5 +84,5 @@ int main(int argc, char *argv[])
     //     printf("%d\n", node->number);
     //     node = node->next;
     // }
-    // ft_exit(&data);
+    ft_exit(&data);
 }

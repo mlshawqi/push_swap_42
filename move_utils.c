@@ -17,13 +17,19 @@ void    ft_last_move(t_data *data)
             {
                 if(pos <= (data->size / 2))
                 {
-                    while (pos-- > 0)
+                    while (pos > 0)
+                    {
                         rb_rotate(&data->stack_b);
+                        pos--;
+                    }
                 }
                 else if (pos > (data->size / 2))
                 {
-                    while (pos++ < data->size)
+                    while (pos < data->size)
+                    {
                         rrb_reverse_rotete(&data->stack_b);
+                        pos++;
+                    }
                 }                
                 pa_push(data);
                 break;
@@ -67,7 +73,7 @@ void    ft_stack_moves(t_data *data)
             // free(data->chunk);
             // ft_chunk(data, data->arr + i, data->chunk_size);
         }
-        else if(((i + data->chunk_size) < data->chunk_size) && data->stack_a->number > data->arr[i + data->chunk_size])
+        else if(((i + (data->chunk_size - 1)) < data->chunk_size) && data->stack_a->number > data->arr[i + (data->chunk_size - 1)])
             ra_rotate(&data->stack_a);
         else
         {
