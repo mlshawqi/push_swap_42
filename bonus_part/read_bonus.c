@@ -23,7 +23,7 @@ void    ft_read_ins(t_data *data)
             pb_push(data);
         else
         {
-            ft_printf("KO\n");
+            ft_printf("Error\n");
             ft_clear_exit(data);
         }
         free(string);

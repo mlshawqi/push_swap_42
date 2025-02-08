@@ -61,6 +61,8 @@ void    pb_push(t_data *data);
 // void    ft_last_move(t_data *data);
 
 void    ft_read_ins(t_data *data);
+void    ft_cmp_stack(t_data *data);
+void    ft_sort_arr(t_data *data);
 
 void    ft_clear_exit(t_data *data);
 void    ft_exit(t_data *d);

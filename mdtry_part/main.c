@@ -2,7 +2,7 @@
 
 int main(int argc, char *argv[])
 {
-    t_data  data;
+	t_data  data;
 
     data.stack_a = NULL;
     data.stack_b = NULL;
