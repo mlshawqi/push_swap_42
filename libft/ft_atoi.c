@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: machaouk <marvin@42.fr>                    #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-10 10:11:55 by machaouk          #+#    #+#             */
+/*   Updated: 2025-02-10 10:11:55 by machaouk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 int	ft_atoi(char *str, int *error)
@@ -19,7 +31,7 @@ int	ft_atoi(char *str, int *error)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		if(!check_overflow(result, str[i] - '0', sign, error))
+		if (!check_overflow(result, str[i] - '0', sign, error))
 			return (0);
 		result *= 10;
 		result += str[i] - 48;
@@ -35,7 +47,7 @@ int	check_overflow(long result, int digit, int sign, int *error)
 		*error = 1;
 		return (0);
 	}
-	if (sign == -1 && -result < (INT_MIN + digit) / 10)
+	if ((sign == -1) && (-result < (INT_MIN + digit) / 10))
 	{
 		*error = 1;
 		return (0);

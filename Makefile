@@ -34,10 +34,18 @@ bonus : $(OBJB)
 	$(CC) $(CFLAGS) $(OBJB) -o $(NAME_B)
 
 clean:
-	rm -f $(OBJS) $(OBJB)
+	rm -f $(OBJS)
+
+clean_b:
+	rm -f $(OBJB)
+
 
 fclean: clean
-	rm -f $(NAME) $(NAME_B)
+	rm -f $(NAME)
+
+fclean_b: clean_b
+	rm -f $(NAME_B)
 
 re: fclean all
+re_b: fclean_b bonus
 .SECONDARY:$(OBJS) $(OBJB)

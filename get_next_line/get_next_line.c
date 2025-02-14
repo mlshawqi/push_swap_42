@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: machaouk <marvin@42.fr>                    #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-02-10 10:11:41 by machaouk          #+#    #+#             */
+/*   Updated: 2025-02-10 10:11:41 by machaouk         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 
 static ssize_t	ft_read_fd(int fd, char **buf)
@@ -76,7 +88,7 @@ static char	*ft_error(ssize_t byte, char **buff, char **savebf)
 			return (*savebf);
 		return (NULL);
 	}
-	if(*savebf)
+	if (*savebf)
 		ft_save_free_str(savebf, NULL, NULL, 0);
 	return (NULL);
 }
